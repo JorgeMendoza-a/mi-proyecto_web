@@ -32,15 +32,34 @@
       font-weight: bold;
     }
 
+    /* SLIDER */
     .banner {
       position: relative;
-      text-align: left;
+      overflow: hidden;
+      height: 250px;
     }
 
-    .banner img {
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
       width: 100%;
-      height: auto;
-      max-height: 250px;
+      height: 100%;
+    }
+
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+      display: none;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
 
@@ -53,6 +72,7 @@
       border-radius: 5px;
     }
 
+    /* CARRUSEL DE ANIMES */
     .carousel-title {
       margin: 16px;
       font-size: 18px;
@@ -69,7 +89,7 @@
 
     .anime-card {
       flex: 0 0 auto;
-      width: 160px;
+      width: 140px;
       background-color: #1e1e1e;
       border-radius: 10px;
       text-align: center;
@@ -84,7 +104,7 @@
 
     .anime-card img {
       width: 100%;
-      height: 230px;
+      height: 200px;
       object-fit: cover;
       border-radius: 10px 10px 0 0;
     }
@@ -93,6 +113,24 @@
       margin: 8px 0;
       font-size: 14px;
       font-weight: bold;
+    }
+
+    @media (min-width: 768px) {
+      .anime-card {
+        width: 180px;
+      }
+
+      .anime-card img {
+        height: 250px;
+      }
+
+      .banner {
+        height: 400px;
+      }
+
+      .slide img {
+        height: 100%;
+      }
     }
   </style>
 </head>
@@ -107,13 +145,62 @@
   </nav>
 </header>
 
+
+<!-- Banner con Slider -->
 <section class="banner">
-  <img src="https://somoskudasai.net/wp-content/uploads/2022/09/portada_chainsaw-man-59.jpg" alt="Chainsaw Man">
-  <div class="banner-text">
-    <h3>Chainsaw Man</h3>
-    <p>Un joven atrapado por las deudas hereda los poderes de un demonio motosierra y se une a una organización para cazar criaturas sobrenaturales.</p>
+  <div class="slider">
+    <div class="slide active">
+      <img src="https://somoskudasai.net/wp-content/uploads/2022/09/portada_chainsaw-man-59.jpg" alt="Chainsaw Man">
+      <div class="banner-text">
+        <h3>Chainsaw Man</h3>
+        <p>Un joven con poderes de motosierra caza demonios junto a una organización secreta.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://i.pinimg.com/1200x/b8/a1/e0/b8a1e0a4f1c188afc0b0b3d4d49d42f3.jpg" alt="Demon Slayer">
+      <div class="banner-text">
+        <h3>Demon Slayer</h3>
+        <p>Tanjiro lucha contra demonios para salvar a su hermana y vengar a su familia.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="https://i.pinimg.com/736x/be/7f/d8/be7fd897f27cd2aa2bd2679315e59a47.jpg" alt="One Piece">
+      <div class="banner-text">
+        <h3>One Piece</h3>
+        <p>Luffy y su tripulación buscan el tesoro legendario y viven aventuras épicas.</p>
+      </div>
+    </div>
+     <div class="slide">
+      <img src="https://i.pinimg.com/736x/3d/c7/64/3dc764dfa81b0d68c213d9f9523d9df8.jpg" alt="Dragon Ball Z">
+      <div class="banner-text">
+        <h3>Dragon Ball Z</h3>
+        <p>Goku defiende la Tierra en batallas épicas contra enemigos legendarios. ¡Transformaciones, poder y acción sin límites en este clásico del anime!</p>
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- Carruseles de animes -->
+<!-- TODO lo que tenías en populares, acción y comedia está bien y puedes dejarlo como está -->
+
+<!-- Slider automático -->
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+
+  function showNextSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }
+
+  setInterval(showNextSlide, 5000); // Cambia cada 5 segundos
+</script>
+
+
+
+
+
 
 <h2 class="carousel-title">Animes Populares</h2>
 <div class="carousel">
@@ -133,7 +220,111 @@
     <img src="https://i.pinimg.com/1200x/b8/a1/e0/b8a1e0a4f1c188afc0b0b3d4d49d42f3.jpg" alt="Demon Slayer">
     <p>Demon Slayer</p>
   </div>
+ <div class="anime-card">
+    <img src="https://i.pinimg.com/736x/b2/21/ab/b221aba85ed138e243cdd8251c79ffd8.jpg" alt="Dragon Ball Z">
+    <p>Dragon Ball Z</p>
+  </div>
+<div class="anime-card">
+    <img src="https://i.pinimg.com/736x/a1/37/7b/a1377b24e8e8a24f5a1464dc37ad0393.jpg" alt="Solo Leveling">
+    <p>Solo Leveling</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/736x/67/0f/be/670fbe20225023f58de18f35da68a3b3.jpg" alt="Dan Da Dan">
+    <p>Dan Da Dan</p>
+  </div>
+<div class="anime-card">
+    <img src="https://i.pinimg.com/736x/b4/14/36/b41436c976680dd3ca436b768411b8fd.jpg" alt="Sakamoto Days">
+    <p>Sakamoto Days</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/1200x/71/6d/ab/716dab0816ebc5417a13ce4e0a804a8e.jpg" alt="Tokyo Revengers">
+    <p>Tokyo Revengers</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/736x/05/2c/32/052c32c3993659b0863320409dae7e17.jpg" alt="Hunter x Hunter">
+    <p>Hunter x Hunter</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/736x/41/1a/4e/411a4ec60f47a265856908fbdf97958b.jpg" alt="Death Note">
+    <p>Death Note</p>
+  </div>
+
+
+
+
+
+
 </div>
+
+<h2 class="carousel-title">Acción</h2>
+<div class="carousel">
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/1200x/25/1a/f4/251af45442ce8e9e5f2a0d1021479a27.jpg" alt="Attack on Titan">
+    <p>Attack on Titan</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/736x/cc/00/67/cc006702f9e3a6b950987e05562c1f13.jpg" alt="Jujutsu Kaisen">
+    <p>Jujutsu Kaisen</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/736x/36/d9/ed/36d9ed0713a740707830221bb2d58184.jpg" alt="Fullmetal Alchemist">
+    <p>Fullmetal Alchemist</p>
+  </div>
+  
+ <div class="anime-card">
+    <img src="https://i.pinimg.com/1200x/69/d4/8a/69d48a54fa81d944c363040c84618638.jpg" alt="Invasion en las Alturas">
+    <p>Invasion en las Alturas</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/1200x/39/7c/58/397c5815c83e35c7370e3b95f5d6a856.jpg" alt="Dragon Ball Super">
+    <p>Dragon Ball Super</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/1200x/6b/63/79/6b63796696beb1c5d9e9c2533a5fb4e9.jpg" alt="Inuyasha">
+    <p>Inuyasha</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/736x/cc/10/0a/cc100a75c76bda537dc35b1658b7809d.jpg" alt="Sword Art Online">
+    <p>Sword Art Online</p>
+  </div>
+</div>
+
+<h2 class="carousel-title">Comedia</h2>
+<div class="carousel">
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/736x/d6/f5/f2/d6f5f2d9e5433e22889859cc62c7acb5.jpg" alt="Konosuba">
+    <p>Konosuba</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/736x/93/66/b2/9366b2f7be82cac5c721e08f0d2fa1f5.jpg" alt="One Punch Man">
+    <p>One Punch Man</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/736x/2e/fe/16/2efe16ba2dc7b58f04aea94f33386a85.jpg" alt="Gintama">
+    <p>Gintama</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/1200x/55/a2/c7/55a2c723d9c1b038c109eb2777bbfe99.jpg" alt="Spy x Family">
+    <p>Spy x Family</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/736x/39/96/cb/3996cb7621bcdb07e1a4075f8797c9e7.jpg" alt="Tomo-chan wa Onnanoko">
+    <p>Tomo-chan wa Onnanoko</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/1200x/d1/af/b7/d1afb76f82fe62d4fba8a8665f21774c.jpg" alt="Buddy Daddies">
+    <p>Buddy Daddies</p>
+  </div>
+  <div class="anime-card">
+    <img src="https://i.pinimg.com/1200x/45/78/33/4578337fb79bdab5846e07cbdc57b7c8.jpg" alt="Aharen-san wa Hakarenai">
+    <p>Aharen-san wa Hakarenai</p>
+  </div>
+</div>
+
+
+
+
+
 
 </body>
 </html>
