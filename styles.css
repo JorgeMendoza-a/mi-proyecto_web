@@ -283,3 +283,68 @@ nav a:hover {
     width: 100%;
   }
 }
+
+.detalle-anime {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.banner-anime {
+  position: relative;
+}
+
+.banner-anime img {
+  width: 100%;
+  height: auto;
+  filter: brightness(0.5);
+}
+
+.info-anime {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  max-width: 40%;
+}
+
+.info-anime h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.estrellas {
+  font-size: 20px;
+  color: gold;
+}
+
+.info-anime button {
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.descripcion {
+  margin: 15px 0;
+  font-size: 16px;
+}
+
+.temporadas {
+  padding: 20px;
+}
+
+.temporadas ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.temporadas li {
+  background-color: #111;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}

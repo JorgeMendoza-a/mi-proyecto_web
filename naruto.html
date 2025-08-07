@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AnimeJM</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #141414;
+      color: #fff;
+    }
+
+    .header {
+      background-color: #000;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header h1 {
+      color: red;
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .header .icons {
+      font-size: 20px;
+    }
+
+    .card {
+      padding: 20px;
+    }
+
+    .thumbnail {
+      position: relative;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 50px;
+      color: white;
+      opacity: 0.8;
+    }
+
+    .title {
+      font-size: 24px;
+      margin: 15px 0 5px;
+    }
+
+    .details {
+      color: #bbb;
+      font-size: 14px;
+    }
+
+    .stars {
+      margin: 10px 0;
+    }
+
+    .stars span {
+      color: red;
+      font-size: 18px;
+    }
+
+    .description {
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    .my-list {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #333;
+      display: inline-block;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .my-list:hover {
+      background-color: #555;
+    }
+
+    .cast {
+      margin-top: 10px;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .season-title {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Anime<span style="color:white">JM</span></h1>
+    <div class="icons">🔍 ☰</div>
+  </div>
+
+  <div class="card">
+    <div class="thumbnail">
+      <img src="https://i.pinimg.com/736x/40/58/3b/40583b452f34e4b6f26955d0dcf7467e.jpg" alt="Naruto">
+      <div class="play-button">▶</div>
+    </div>
+
+    <div class="title">Naruto</div>
+    <div class="details">2002 &nbsp; TV-PG &nbsp; 5 Temporadas &nbsp; <span style="color: gray;">HD</span></div>
+
+    <div class="stars">
+      <span>★ ★ ★ ★ ☆</span>
+    </div>
+
+    <div class="description">
+      Un joven ninja, Naruto Uzumaki, busca el reconocimiento de los demás y sueña con convertirse en el Hokage, el líder más fuerte de su aldea. Acompáñalo en su camino lleno de amistad, rivalidades y batallas épicas.
+
+    </div>
+
+    <div class="my-list">+ Mi Lista</div>
+
+    <div class="cast">
+      <strong>Protagonista:</strong>  Naruto Uzumaki, Sasuke Uchiha, Sakura Haruno, Kakashi Hatake
+
+    </div>
+
+    <div class="season-title">Season 1</div>
+  </div>
+
+</body>
+</html>

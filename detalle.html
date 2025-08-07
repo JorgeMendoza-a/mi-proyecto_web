@@ -28,12 +28,12 @@
 
     async function cargarDetalles() {
       try {
-        const res = await fetch(https://api.jikan.moe/v4/anime/${animeId});
+        const res = await fetch(`https://api.jikan.moe/v4/anime/${animeId}`);
         const data = await res.json();
         const anime = data.data;
 
         const container = document.getElementById("anime-detail");
-        container.innerHTML = 
+        container.innerHTML = `
           <div class="detail-banner" style="background-image: url('${anime.images.jpg.large_image_url}')"></div>
           <div class="detail-content">
             <h2>${anime.title}</h2>
@@ -43,14 +43,15 @@
             <p><strong>Estado:</strong> ${anime.status}</p>
             <p><strong>Puntuación:</strong> ⭐ ${anime.score || "Sin puntuación"}</p>
             <p><strong>Fecha de emisión:</strong> ${anime.aired.string}</p>
-            <p><strong>Estudio(s):</strong> ${anime.studios.map(s => s.name).join(", ")}</p>
-
-            ${anime.trailer.embed_url ? 
+            <p><strong>Estudio(s):</strong> ${anime.studios?.map(s => s.name).join(", ") || "Desconocido"}</p>
+            ${anime.trailer && anime.trailer.embed_url ? `
               <h3>Tráiler</h3>
               <iframe width="100%" height="350" src="${anime.trailer.embed_url}" frameborder="0" allowfullscreen></iframe>
-             : "<p><strong>Tráiler:</strong> No disponible</p>"}
+            ` : `
+              <p><strong>Tráiler:</strong> No disponible</p>
+            `}
           </div>
-        ;
+        `;
       } catch (error) {
         document.getElementById("anime-detail").innerHTML = "<p>Error al cargar detalles del anime.</p>";
         console.error(error);

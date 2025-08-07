@@ -87,6 +87,8 @@
       scroll-snap-type: x mandatory;
     }
 
+
+
     .anime-card {
       flex: 0 0 auto;
       width: 140px;
@@ -145,6 +147,7 @@
   </nav>
 </header>
 
+<div id="anime-detail" class="detail-container" style="display: none;"></div>
 
 <!-- Banner con Slider -->
 <section class="banner">
@@ -204,14 +207,18 @@
 
 <h2 class="carousel-title">Animes Populares</h2>
 <div class="carousel">
-  <div class="anime-card">
+ <a href="naruto.html" class="anime-link">
+ <div class="anime-card" onclick="showAnimeInfo('Naruto')">
     <img src="https://i.pinimg.com/1200x/37/d3/8a/37d38a90d45f8379de57252b798bc02e.jpg" alt="Naruto">
     <p>Naruto</p>
   </div>
-  <div class="anime-card">
+ </a>
+   <a href="bleach.html" class="anime-link">
+ <div class="anime-card" onclick="showAnimeInfo('Bleach')">
     <img src="https://i.pinimg.com/736x/15/13/33/15133315ac8687d2c09d0f3674f45730.jpg" alt="Bleach">
     <p>Bleach</p>
   </div>
+   </a>
   <div class="anime-card">
     <img src="https://i.pinimg.com/736x/be/7f/d8/be7fd897f27cd2aa2bd2679315e59a47.jpg" alt="One Piece">
     <p>One Piece</p>
@@ -220,10 +227,12 @@
     <img src="https://i.pinimg.com/1200x/b8/a1/e0/b8a1e0a4f1c188afc0b0b3d4d49d42f3.jpg" alt="Demon Slayer">
     <p>Demon Slayer</p>
   </div>
- <div class="anime-card">
+  <a href="dragonballz.html" class="anime-link">
+ <div class="anime-card" onclick="showAnimeInfo('Dragon Ball Z')">
     <img src="https://i.pinimg.com/736x/b2/21/ab/b221aba85ed138e243cdd8251c79ffd8.jpg" alt="Dragon Ball Z">
     <p>Dragon Ball Z</p>
   </div>
+  </a>
 <div class="anime-card">
     <img src="https://i.pinimg.com/736x/a1/37/7b/a1377b24e8e8a24f5a1464dc37ad0393.jpg" alt="Solo Leveling">
     <p>Solo Leveling</p>
@@ -322,6 +331,57 @@
 </div>
 
 
+<div id="anime-info" style="display: none; padding: 20px;">
+  <h2 id="anime-title"></h2>
+  <p id="anime-description"></p>
+  <h3>Capítulos:</h3>
+  <ul id="anime-episodes"></ul>
+  <button onclick="closeAnimeInfo()">Cerrar</button>
+</div>
+
+<script>
+  const animes = {
+    "Naruto": {
+      description: "Naruto Uzumaki es un joven ninja con un demonio zorro sellado en su interior, que sueña con convertirse en Hokage.",
+      episodes: ["Episodio 1: ¡Naruto Uzumaki!", "Episodio 2: Mi nombre es Konohamaru", "Episodio 3: Sasuke y Sakura"]
+    },
+    "Bleach": {
+      description: "Ichigo Kurosaki obtiene los poderes de un Shinigami y debe proteger a los humanos de los Hollow.",
+      episodes: ["Episodio 1: El día que me convertí en Shinigami", "Episodio 2: Trabajo de Shinigami", "Episodio 3: El deseo del hermano"]
+    },
+    "One Piece": {
+      description: "Monkey D. Luffy y su tripulación buscan el legendario tesoro One Piece para convertirse en el Rey de los Piratas.",
+      episodes: ["Episodio 1: ¡Soy Luffy! ¡El hombre que se convertirá en el Rey de los Piratas!", "Episodio 2: ¡Aparece el gran espadachín!", "Episodio 3: Morgan vs. Luffy"]
+    },
+    "Demon Slayer": {
+      description: "Tanjiro Kamado lucha contra demonios para salvar a su hermana Nezuko, quien fue convertida en uno de ellos.",
+      episodes: ["Episodio 1: Crueldad", "Episodio 2: Entrenamiento con Urokodaki", "Episodio 3: Selección final"]
+    }
+  };
+
+  function showAnimeInfo(name) {
+    const info = animes[name];
+    if (info) {
+      document.getElementById('anime-title').textContent = name;
+      document.getElementById('anime-description').textContent = info.description;
+
+      const episodeList = document.getElementById('anime-episodes');
+      episodeList.innerHTML = "";
+      info.episodes.forEach(ep => {
+        const li = document.createElement('li');
+        li.textContent = ep;
+        episodeList.appendChild(li);
+      });
+
+      document.getElementById('anime-info').style.display = 'block';
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+  }
+
+  function closeAnimeInfo() {
+    document.getElementById('anime-info').style.display = 'none';
+  }
+</script>
 
 
 
