@@ -348,3 +348,11 @@ nav a:hover {
   padding: 10px;
   border-radius: 5px;
 }
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}

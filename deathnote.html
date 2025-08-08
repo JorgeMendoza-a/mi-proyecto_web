@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AnimeJM</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000000;
+      color: #fff;
+    }
+
+    .header {
+      background-color: #000;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header h1 {
+      color: red;
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .header .icons {
+      font-size: 20px;
+    }
+
+    .card {
+      padding: 20px;
+    }
+
+    .thumbnail {
+      position: relative;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 50px;
+      color: white;
+      opacity: 0.8;
+    }
+
+    .title {
+      font-size: 24px;
+      margin: 15px 0 5px;
+    }
+
+    .details {
+      color: #b9b7b7;
+      font-size: 14px;
+    }
+
+    .stars {
+      margin: 10px 0;
+    }
+
+    .stars span {
+      color: red;
+      font-size: 18px;
+    }
+
+    .description {
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    .my-list {
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #333;
+      display: inline-block;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .my-list:hover {
+      background-color: #8e8d8d;
+    }
+
+    .cast {
+      margin-top: 10px;
+      color: #767474;
+      font-size: 14px;
+    }
+
+    .season-title {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Anime<span style="color:white">JM</span></h1>
+    <div class="icons">🔍 ☰</div>
+  </div>
+<div style="padding: 10px;">
+  <a href="index.html" style="text-decoration: none;">
+    <button style="background: none; color: white; border: none; font-size: 28px; cursor: pointer;">
+      ←
+    </button>
+  </a>
+</div>
+
+  <div class="card">
+    <div class="thumbnail">
+      <img src="https://i.pinimg.com/1200x/de/6f/ab/de6fab01049c6ca83e8f781e6a4e2628.jpg" alt="Death Note">
+      <div class="play-button">▶</div>
+    </div>
+
+    <div class="title">Death Note</div>
+    <div class="details">2006 &nbsp; TV-16 &nbsp; 1 Temporadas &nbsp; <span style="color: gray;">HD</span></div>
+
+    <div class="stars">
+      <span>★ ★ ★ ★ ★</span>
+    </div>
+
+    <div class="description">
+     Light Yagami, un brillante estudiante, encuentra un misterioso cuaderno con el poder de matar a cualquier persona cuyo nombre sea escrito en él. Decidido a eliminar el crimen y convertirse en el “dios” de un nuevo mundo, se enfrentará a L, un enigmático detective que hará todo lo posible por detenerlo. El duelo de ingenios entre ambos marcará el destino del mundo.
+    </div>
+
+    <div class="my-list">+ Mi Lista</div>
+
+    <div class="cast">
+      <strong>Protagonista:</strong> Light Yagami, L, Misa Amane, Ryuk
+    </div>
+
+    <div class="season-title">Season 1</div>
+  </div>
+<!-- Agrega esto justo antes del cierre de </body> -->
+<div style="padding: 20px;">
+  <h2 style="font-size: 20px; margin-bottom: 15px;">Episodios</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <!-- Lista de episodios -->
+    <!-- Puedes reemplazar # por un link real al video si lo tienes -->
+    <!-- Cada uno ocupa media pantalla en móviles, un tercio en pantallas más grandes -->
+    <!-- Repite para los 37 episodios -->
+    <style>
+      .episode-link {
+        flex: 1 0 120px;
+        background-color: #1c1c1c;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .episode-link:hover {
+        background-color: #383838;
+      }
+    </style>
+
+    <!-- Generado dinámicamente del 1 al 37 -->
+    <!-- Puedes usar un lenguaje backend o copiar y pegar este bloque -->
+    <!-- Cada uno representa un episodio -->
+    <!-- Ejemplo de uno solo -->
+    <!-- <a href="link_al_video.mp4" class="episode-link">Episodio 1</a> -->
+
+    <!-- Aquí están todos los episodios -->
+    <a href="#" class="episode-link">Episodio 1</a>
+    <a href="#" class="episode-link">Episodio 2</a>
+    <a href="#" class="episode-link">Episodio 3</a>
+    <a href="#" class="episode-link">Episodio 4</a>
+    <a href="#" class="episode-link">Episodio 5</a>
+    <a href="#" class="episode-link">Episodio 6</a>
+    <a href="#" class="episode-link">Episodio 7</a>
+    <a href="#" class="episode-link">Episodio 8</a>
+    <a href="#" class="episode-link">Episodio 9</a>
+    <a href="#" class="episode-link">Episodio 10</a>
+    <a href="#" class="episode-link">Episodio 11</a>
+    <a href="#" class="episode-link">Episodio 12</a>
+    <a href="#" class="episode-link">Episodio 13</a>
+    <a href="#" class="episode-link">Episodio 14</a>
+    <a href="#" class="episode-link">Episodio 15</a>
+    <a href="#" class="episode-link">Episodio 16</a>
+    <a href="#" class="episode-link">Episodio 17</a>
+    <a href="#" class="episode-link">Episodio 18</a>
+    <a href="#" class="episode-link">Episodio 19</a>
+    <a href="#" class="episode-link">Episodio 20</a>
+    <a href="#" class="episode-link">Episodio 21</a>
+    <a href="#" class="episode-link">Episodio 22</a>
+    <a href="#" class="episode-link">Episodio 23</a>
+    <a href="#" class="episode-link">Episodio 24</a>
+    <a href="#" class="episode-link">Episodio 25</a>
+    <a href="#" class="episode-link">Episodio 26</a>
+    <a href="#" class="episode-link">Episodio 27</a>
+    <a href="#" class="episode-link">Episodio 28</a>
+    <a href="#" class="episode-link">Episodio 29</a>
+    <a href="#" class="episode-link">Episodio 30</a>
+    <a href="#" class="episode-link">Episodio 31</a>
+    <a href="#" class="episode-link">Episodio 32</a>
+    <a href="#" class="episode-link">Episodio 33</a>
+    <a href="#" class="episode-link">Episodio 34</a>
+    <a href="#" class="episode-link">Episodio 35</a>
+    <a href="#" class="episode-link">Episodio 36</a>
+    <a href="#" class="episode-link">Episodio 37</a>
+  </div>
+</div>
+
+
+</body>
+</html>
