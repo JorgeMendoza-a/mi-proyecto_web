@@ -101,6 +101,88 @@
       font-size: 18px;
       font-weight: bold;
     }
+
+    /* --- Episodios estilo Netflix/Crunchyroll --- */
+    .episode-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .episode-card {
+      position: relative;
+      flex: 1 0 150px;
+      max-width: 150px;
+      cursor: pointer;
+      border-radius: 6px;
+      overflow: hidden;
+      background-color: #1c1c1c;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .episode-card img {
+      width: 100%;
+      height: 90px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .episode-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .episode-overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 5px;
+      font-size: 14px;
+      text-align: center;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+    }
+
+    .episode-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 26px;
+      color: white;
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    /* --- Modal estilo Netflix --- */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .modal iframe {
+      width: 90%;
+      height: 80%;
+      border: none;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 35px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -124,7 +206,7 @@
     </div>
 
     <div class="title">Death Note</div>
-    <div class="details">2006 &nbsp; TV-16 &nbsp; 1 Temporadas &nbsp; <span style="color: gray;">HD</span></div>
+    <div class="details">2006 &nbsp; TV-16 &nbsp; 1 Temporada &nbsp; <span style="color: gray;">HD</span></div>
 
     <div class="stars">
       <span>★ ★ ★ ★ ★</span>
@@ -142,78 +224,258 @@
 
     <div class="season-title">Season 1</div>
   </div>
-<!-- Agrega esto justo antes del cierre de </body> -->
+
 <div style="padding: 20px;">
   <h2 style="font-size: 20px; margin-bottom: 15px;">Episodios</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <!-- Lista de episodios -->
-    <!-- Puedes reemplazar # por un link real al video si lo tienes -->
-    <!-- Cada uno ocupa media pantalla en móviles, un tercio en pantallas más grandes -->
-    <!-- Repite para los 37 episodios -->
-    <style>
-      .episode-link {
-        flex: 1 0 120px;
-        background-color: #1c1c1c;
-        padding: 10px;
-        border-radius: 5px;
-        text-align: center;
-        color: white;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-      }
+  <div class="episode-container">
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/hRZmnIjK#1lDlyQXshNbWjjQuOTIZOPgM9pFydm_OUmP5SboaYKY')">
+      <img src="https://subcultoka.jp/wp-content/uploads/2015/06/deathnote02pre4LG.jpg" alt="Episodio 1">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 1</div>
+    </div>
 
-      .episode-link:hover {
-        background-color: #383838;
-      }
-    </style>
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 2</div>
+    </div>
 
-    <!-- Generado dinámicamente del 1 al 37 -->
-    <!-- Puedes usar un lenguaje backend o copiar y pegar este bloque -->
-    <!-- Cada uno representa un episodio -->
-    <!-- Ejemplo de uno solo -->
-    <!-- <a href="link_al_video.mp4" class="episode-link">Episodio 1</a> -->
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/wN4XFJYI#LmvRed2hJT1O6vFOf6Kao3mtHbUMTklbTo280KnKMBs')">
+      <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2018/11/Chief-Yagami.jpg" alt="Episodio 3">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 3</div>
+    </div>
 
-    <!-- Aquí están todos los episodios -->
-    <a href="https://drive.google.com/file/d/1oG1It9hYmmqT6yeCOSKtfc5JQeILJA-h/view?usp=drive_link" class="episode-link">Episodio 1</a>
-    <a href="#" class="episode-link">Episodio 2</a>
-    <a href="#" class="episode-link">Episodio 3</a>
-    <a href="#" class="episode-link">Episodio 4</a>
-    <a href="#" class="episode-link">Episodio 5</a>
-    <a href="#" class="episode-link">Episodio 6</a>
-    <a href="#" class="episode-link">Episodio 7</a>
-    <a href="#" class="episode-link">Episodio 8</a>
-    <a href="#" class="episode-link">Episodio 9</a>
-    <a href="#" class="episode-link">Episodio 10</a>
-    <a href="#" class="episode-link">Episodio 11</a>
-    <a href="#" class="episode-link">Episodio 12</a>
-    <a href="#" class="episode-link">Episodio 13</a>
-    <a href="#" class="episode-link">Episodio 14</a>
-    <a href="#" class="episode-link">Episodio 15</a>
-    <a href="#" class="episode-link">Episodio 16</a>
-    <a href="#" class="episode-link">Episodio 17</a>
-    <a href="#" class="episode-link">Episodio 18</a>
-    <a href="#" class="episode-link">Episodio 19</a>
-    <a href="#" class="episode-link">Episodio 20</a>
-    <a href="#" class="episode-link">Episodio 21</a>
-    <a href="#" class="episode-link">Episodio 22</a>
-    <a href="#" class="episode-link">Episodio 23</a>
-    <a href="#" class="episode-link">Episodio 24</a>
-    <a href="#" class="episode-link">Episodio 25</a>
-    <a href="#" class="episode-link">Episodio 26</a>
-    <a href="#" class="episode-link">Episodio 27</a>
-    <a href="#" class="episode-link">Episodio 28</a>
-    <a href="#" class="episode-link">Episodio 29</a>
-    <a href="#" class="episode-link">Episodio 30</a>
-    <a href="#" class="episode-link">Episodio 31</a>
-    <a href="#" class="episode-link">Episodio 32</a>
-    <a href="#" class="episode-link">Episodio 33</a>
-    <a href="#" class="episode-link">Episodio 34</a>
-    <a href="#" class="episode-link">Episodio 35</a>
-    <a href="#" class="episode-link">Episodio 36</a>
-    <a href="#" class="episode-link">Episodio 37</a>
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/KnAgUSoa#8h-Vt4yVP5_F96uMKQJQTW3yCJ5XRwYddhZDws0akwg')">
+      <img src="https://whatnerd.com/wp-content/uploads/2019/05/cerebral-anime-death-note.jpg" alt="Episodio 4">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 4</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/v6wARSoS#G4GQvefZj_nBq2CnRDNfZebqzIVLKvL57NPZ0TvLlC0')">
+      <img src="https://pixelnerd.com.br/wp-content/uploads/2023/03/maxresdefault-5-853x480.jpg" alt="Episodio 5">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 5</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/S2hWlQTT#IZl5F3yB7ffg_AL_yYQQogupU4vlMUz0MtpZ2cVVd_U')">
+      <img src="https://s23.namasha.com/images/preview/7335217418-640x360.jpg" alt="Episodio 6">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 6</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/y7hyQKQA#IOooh74Ubc0Io6nYtlch9xYc9cA3bVFlQI6vPQUirCM')">
+      <img src="https://fantasytopics.com/wp-content/uploads/2022/05/Death-Note-Characters-Heights-Age-and-Birthday-Analysis-1080x608.png" alt="Episodio 7">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 7</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/LjoSyKpI#nOOrJETjCZHn3rPFsLMruL8qJNwQgPzd1P7M41FiGOU')">
+      <img src="https://i.pinimg.com/originals/2e/56/74/2e56749bc786dc08a81928779275c2cb.jpg" alt="Episodio 8">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 8</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/bnoAACQb#ZhZzp4NOkTRdLBuv74DcJywbw9RV1wa79kdxg4-m9w0')">
+      <img src="https://image.tmdb.org/t/p/original/iBRK6viH6YPlD81p6kD7yZlTIrZ.jpg" alt="Episodio 9">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 9</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/OzgAFALD#bEyi8-XfVIgwRxfxTCmx-6j67EoyMn0ud2FNmxXUx90')">
+      <img src="https://cdn.animationexplore.com/thumbs/Death-Note-Episode-10.jpg" alt="Episodio 10">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 10</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 11</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 12</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 13</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 14</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 15</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 16</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 17</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 18</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 19</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 20</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 21</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 22</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 23</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 24</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 25</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 26</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 27</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 28</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 29</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 30</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 31</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 32</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 33</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 34</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 35</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 36</div>
+    </div>
+
+    <div class="episode-card" onclick="openEpisode('https://mega.nz/embed/j7ATkALL#_IcTLby1lMq-dUXyu6u7jbSbMGLiX3LcKP4jp8D4c04')">
+      <img src="https://i.ytimg.com/vi/q1v4YpbBq28/maxresdefault.jpg" alt="Episodio 2">
+      <div class="episode-play">▶</div>
+      <div class="episode-overlay">Episodio 37</div>
+    </div>
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal" id="videoModal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <iframe id="modalPlayer" allowfullscreen></iframe>
+</div>
+
+<script>
+function openEpisode(url) {
+  document.getElementById('modalPlayer').src = url;
+  document.getElementById('videoModal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('videoModal').style.display = 'none';
+  document.getElementById('modalPlayer').src = "";
+}
+
+// Cierra con ESC
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+</script>
 
 </body>
 </html>
